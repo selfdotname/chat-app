@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/styles.css">
+        <script src="https://js.pusher.com/8.4.0/pusher.min.js"></script>
+        <title>Chat App - Obaro</title>
+    </head>
+    <body class="h-dvh flex flex-col p-2">
+        <ul class="messages grow overflow-auto space-y-4 py-2">
+            <% for (const message of messages) { %>
+                <li>
+                    <div><%= message.sender?.name || message.sender._id.toHexString() %>: <%= message.message %></div>
+                    <small class="font-light"><%= new Date(message.timestamp).toLocaleString() %></small>
+                </li>
+            <% } %>
+        </ul>
+        <form class="flex gap-2">
+            <input type="text"
+            placeholder="Message" 
+            name="message"
+            class="grow p-4 rounded-lg outline-0 border border-blue-400 focus:border-4">
+
+            <input type="hidden" 
+            name="chat_id" 
+            value="<%= id %>">
+
+            <button type="submit" class="w-25 py-3 rounded-lg bg-blue-400 text-white font-bold disabled:bg-blue-900">Send</button>
+        </form>
+        <script src="/messages.js"></script>
+    </body>
+</html>
