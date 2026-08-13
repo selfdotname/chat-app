@@ -16,6 +16,10 @@ channel.bind('new-message', data => {
         </li>
         `
     }
+    ul.scrollTo({
+        behavior: "smooth",
+        top: ul.scrollHeight
+    })
 })
 
 document.querySelector('form').addEventListener('submit', async e => {
