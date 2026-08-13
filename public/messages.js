@@ -37,3 +37,11 @@ window.addEventListener('pagehide', () => {
     channel.unbind('new-message')
     pusher.disconnect()
 })
+
+window.addEventListener('DOMContentLoaded', () => {
+    ul.scrollTo({
+        behavior: "smooth",
+        top: ul.scrollHeight
+    })
+
+})
