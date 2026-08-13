@@ -22,7 +22,7 @@
                     <li>
                         <a href="/chats/<%= chat._id.toHexString() %>" 
                             class="inline-block p-4 bg-blue-200 hover:bg-blue-300 rounded-lg hover:shadow">
-                            A chat between <%= chat.user1?.name || chat.user1._id.toHexString() %> and <%= chat.user2?.name || chat.user2._id.toHexString() %>
+                            <%= chat.user1.name == name ? chat.user2.name : chat.user1.name %>
                         </a>
                     </li>
                 <% } %>
